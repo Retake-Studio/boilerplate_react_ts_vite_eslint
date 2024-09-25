@@ -42,7 +42,7 @@ local function SendReactMessage(value, options)
                 ---@todo
             end
         elseif type(options.focus) == 'string' and options.focus == 'ignore' then
-           goto ignore
+            goto ignore
         end
 
         if type(options.locations) == 'string' and cusorPosition[options.locations] then
