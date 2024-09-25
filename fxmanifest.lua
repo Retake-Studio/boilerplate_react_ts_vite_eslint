@@ -20,15 +20,16 @@ files {
 -- escrow_ignore {}
 
 shared_scripts {
+    '@rtk_lib/import.lua',
     ---@todo
 }
 
 client_scripts {
-    'client/utils/*.lua',
     'client/main.lua',
 }
 
 server_scripts {
+    -- '@oxmysql/lib/MySQL.lua'
     ---@todo
 }
 
