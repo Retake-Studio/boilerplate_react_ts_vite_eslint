@@ -24,7 +24,8 @@ shared_scripts {
 }
 
 client_scripts {
-    ---@todo
+    'client/utils/*.lua',
+    'client/main.lua',
 }
 
 server_scripts {
