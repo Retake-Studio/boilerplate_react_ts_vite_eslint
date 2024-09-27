@@ -6,6 +6,16 @@ type IconProps = {
   fill?: string;
 };
 
+/**
+ * Icon component to display an image or SVG icon.
+ *
+ * @param {Object} props - The properties for the Icon component.
+ * @param {string} [props.id=""] - The identifier for the icon, which can be a PNG or SVG file name.
+ * @param {React.CSSProperties} [props.style] - Optional styles to apply to the icon.
+ * @param {string} [props.fill] - Optional fill color for the SVG icon.
+ *
+ * @returns {JSX.Element | null} The rendered icon or null if no icon is provided.
+ */
 export function Icon({ id = "", style, fill }: IconProps) {
   const [iconContent, setIconContent] = useState<string | null>(null);
   const [isImage, setIsImage] = useState<boolean>(false);
@@ -21,8 +31,8 @@ export function Icon({ id = "", style, fill }: IconProps) {
           setIconContent(`./icons/${id}`);
           setError(false);
         };
-        img.onerror = (erreur) => {
-          console.error("Erreur lors du chargement de l'icône:", erreur);
+        img.onerror = (error) => {
+          console.error("Error loading icon:", error);
           setError(true);
         };
         img.src = `./icons/${id}`;
@@ -30,7 +40,7 @@ export function Icon({ id = "", style, fill }: IconProps) {
         fetch(`./icons/${id}.svg`)
           .then((response) => {
             if (!response.ok) {
-              throw new Error(`L'icône ${id} n'existe pas`);
+              throw new Error(`Icon ${id} does not exist`);
             }
             return response.text();
           })
@@ -39,8 +49,8 @@ export function Icon({ id = "", style, fill }: IconProps) {
             setIsImage(false);
             setError(false);
           })
-          .catch((erreur) => {
-            console.error("Erreur lors du chargement de l'icône:", erreur);
+          .catch((error) => {
+            console.error("Error loading icon:", error);
             setError(true);
           });
       }
