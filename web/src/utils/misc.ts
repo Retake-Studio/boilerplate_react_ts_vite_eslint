@@ -1,7 +1,5 @@
 // Will return whether the current environment is in a regular browser
 // and not CEF
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const isEnvBrowser = (): boolean => !(window as any).invokeNative;
+export const isEnvBrowser = (): boolean => !window.invokeNative;
 
-// Basic no operation function
 export const noop = () => {};
