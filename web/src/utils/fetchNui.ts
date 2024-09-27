@@ -1,15 +1,12 @@
 import { isEnvBrowser } from "./misc";
 
 /**
- * Simple wrapper around fetch API tailored for CEF/NUI use. This abstraction
- * can be extended to include AbortController if needed or if the response isn't
- * JSON. Tailor it to your needs.
+ * Fetches data from the NUI (New User Interface) using a specified event name.
  *
- * @param eventName - The endpoint eventname to target
- * @param data - Data you wish to send in the NUI Callback
- * @param mockData - Mock data to be returned if in the browser
- *
- * @return returnData - A promise for the data sent back by the NuiCallbacks CB argument
+ * @param eventName - The name of the event to fetch data for.
+ * @param data - Optional data to send with the request.
+ * @param mock - Optional mock data for testing purposes, including a delay.
+ * @returns A promise that resolves to the fetched data of type T.
  */
 export async function fetchNui<T = unknown>(
   eventName: string,
