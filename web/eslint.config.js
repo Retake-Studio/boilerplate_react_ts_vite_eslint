@@ -1,9 +1,9 @@
 import js from "@eslint/js";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
+import tailwind from "eslint-plugin-tailwindcss";
 import globals from "globals";
 import tseslint from "typescript-eslint";
-
 export default tseslint.config(
   { ignores: ["dist"] },
   {
@@ -44,5 +44,6 @@ export default tseslint.config(
         },
       },
     },
-  }
+  },
+  ...tailwind.configs["flat/recommended"]
 );
